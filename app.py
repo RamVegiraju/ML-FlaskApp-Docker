@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('form.html')
+    return render_template('index.html')
 
 @app.route('/', methods = ['POST'])
 def getvalue():
@@ -22,7 +22,7 @@ def getvalue():
     res = model_rf.predict([[taxUser, incomeUser, highwaysUser, licenseUser]])[0]
     print(res)
     print(type(res))
-    return "Hello world"
+    return render_template('index.html', res = res)
 
 if __name__ =='__main__':
     app.run(debug=True)

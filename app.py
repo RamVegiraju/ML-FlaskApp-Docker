@@ -4,7 +4,6 @@ import pandas as pd
 import numpy as np
 import joblib
 
-
 model_rf = joblib.load(open('model.pkl','rb'))
 app = Flask(__name__)
 

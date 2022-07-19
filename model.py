@@ -7,7 +7,7 @@ from sklearn import metrics
 import joblib
 
 #Read in data
-df = pd.read_csv('petrol_consumption.csv')
+df = pd.read_csv('Data/petrol_consumption.csv')
 
 #Split and prepare data
 X = df.drop('Petrol_Consumption', axis = 1)

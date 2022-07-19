@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestRegressor
 from sklearn import metrics
-import pickle
+import joblib
 
 #Read in data
 df = pd.read_csv('petrol_consumption.csv')
@@ -30,4 +30,4 @@ print(int(regressor.predict([[9.0, 3571, 1976, .525]])))
 print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(y_test, y_pred)))
 
 #Pickle model for Flask App
-pickle.dump(regressor, open('model.pkl', 'wb'))
+joblib.dump(regressor, open('model.pkl', 'wb'))

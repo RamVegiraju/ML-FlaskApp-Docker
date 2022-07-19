@@ -2,11 +2,10 @@ from flask import Flask, request, jsonify, render_template, session, redirect, u
 import requests
 import pandas as pd
 import numpy as np
-import pickle
 import joblib
 
 
-model_rf = pickle.load(open('model.pkl','rb'))
+model_rf = joblib.load(open('model.pkl','rb'))
 app = Flask(__name__)
 
 @app.route('/')
@@ -15,13 +14,11 @@ def home():
 
 @app.route('/', methods = ['POST'])
 def getvalue():
-    taxUser = int(request.form['tax'])
-    incomeUser = int(request.form['income'])
-    highwaysUser = int(request.form['highways'])
+    taxUser = request.form['tax']
+    incomeUser = request.form['income']
+    highwaysUser = request.form['highways']
     licenseUser = request.form['license']
-    res = model_rf.predict([[taxUser, incomeUser, highwaysUser, licenseUser]])[0]
-    print(res)
-    print(type(res))
+    res = model_rf.predict([[taxUser, incomeUser, highwaysUser, licenseUser]])
     return render_template('index.html', res = res)
 
 if __name__ =='__main__':

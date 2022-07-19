@@ -23,6 +23,4 @@ docker run -p 5000:5000 ramveg/ml-app
 
 ## To-Do
 
-[Blog 1]
-
-[Blog 2]
+[Blog/Guide](https://ram-vegiraju.medium.com/dockerizing-flask-ml-applications-3577b216dac0)
